@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="DataEntryAppDemo/DataEntryAppDemo.csproj" />
+  <Project Path="DataEntryLibrary/DataEntryLibrary.csproj" Id="7d3598ce-183c-48cf-bc20-514d61245210" />
+</Solution>
