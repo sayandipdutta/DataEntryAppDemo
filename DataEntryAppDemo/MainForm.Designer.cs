@@ -30,32 +30,52 @@
         {
             splitContainer1 = new SplitContainer();
             splitContainer2 = new SplitContainer();
-            groupBox1 = new GroupBox();
-            relPageNoNumEntry = new NumericUpDown();
-            relPageNoLabel = new Label();
-            absPageNoNumEntry = new NumericUpDown();
-            absPageNoLabel = new Label();
-            doctypeComboBox = new ComboBox();
-            entryFormButton = new Button();
-            firstNameTextBox = new TextBox();
-            doctypeLabel = new Label();
-            imagePathLabel = new Label();
+            filesTabControl = new TabControl();
+            tabPage1 = new TabPage();
+            fileTree = new TreeView();
+            tabPage2 = new TabPage();
+            fileList = new ListBox();
+            previewPictureBox = new PictureBox();
+            metadataGroupBox = new GroupBox();
             instructionListBox = new ListBox();
+            relPageNoNumEntry = new NumericUpDown();
+            firstNameTextBox = new TextBox();
+            imagePathLabel = new Label();
+            doctypeComboBox = new ComboBox();
+            relPageNoLabel = new Label();
+            entryFormButton = new Button();
+            doctypeLabel = new Label();
+            absPageNoLabel = new Label();
+            absPageNoNumEntry = new NumericUpDown();
+            statusStrip1 = new StatusStrip();
+            menuStrip1 = new MenuStrip();
+            fileToolStripMenuItem = new ToolStripMenuItem();
+            projectToolStripMenuItem = new ToolStripMenuItem();
+            toolStripStatusLabel1 = new ToolStripStatusLabel();
+            accountToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
             splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer2).BeginInit();
+            splitContainer2.Panel1.SuspendLayout();
+            splitContainer2.Panel2.SuspendLayout();
             splitContainer2.SuspendLayout();
-            groupBox1.SuspendLayout();
+            filesTabControl.SuspendLayout();
+            tabPage1.SuspendLayout();
+            tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)previewPictureBox).BeginInit();
+            metadataGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)relPageNoNumEntry).BeginInit();
             ((System.ComponentModel.ISupportInitialize)absPageNoNumEntry).BeginInit();
+            statusStrip1.SuspendLayout();
+            menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // splitContainer1
             // 
-            splitContainer1.Dock = DockStyle.Fill;
-            splitContainer1.Location = new Point(0, 0);
+            splitContainer1.Anchor = AnchorStyles.Left;
+            splitContainer1.Location = new Point(0, 27);
             splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -64,8 +84,9 @@
             // 
             // splitContainer1.Panel2
             // 
-            splitContainer1.Panel2.Controls.Add(groupBox1);
-            splitContainer1.Size = new Size(1029, 630);
+            splitContainer1.Panel2.Controls.Add(metadataGroupBox);
+            splitContainer1.Panel2.Paint += splitContainer1_Panel2_Paint;
+            splitContainer1.Size = new Size(1029, 603);
             splitContainer1.SplitterDistance = 733;
             splitContainer1.TabIndex = 0;
             // 
@@ -74,82 +95,111 @@
             splitContainer2.Dock = DockStyle.Fill;
             splitContainer2.Location = new Point(0, 0);
             splitContainer2.Name = "splitContainer2";
-            splitContainer2.Size = new Size(733, 630);
+            // 
+            // splitContainer2.Panel1
+            // 
+            splitContainer2.Panel1.Controls.Add(filesTabControl);
+            // 
+            // splitContainer2.Panel2
+            // 
+            splitContainer2.Panel2.Controls.Add(previewPictureBox);
+            splitContainer2.Size = new Size(733, 603);
             splitContainer2.SplitterDistance = 244;
             splitContainer2.TabIndex = 0;
             // 
-            // groupBox1
+            // filesTabControl
             // 
-            groupBox1.Controls.Add(instructionListBox);
-            groupBox1.Controls.Add(relPageNoNumEntry);
-            groupBox1.Controls.Add(firstNameTextBox);
-            groupBox1.Controls.Add(imagePathLabel);
-            groupBox1.Controls.Add(doctypeComboBox);
-            groupBox1.Controls.Add(relPageNoLabel);
-            groupBox1.Controls.Add(entryFormButton);
-            groupBox1.Controls.Add(doctypeLabel);
-            groupBox1.Controls.Add(absPageNoLabel);
-            groupBox1.Controls.Add(absPageNoNumEntry);
-            groupBox1.Location = new Point(3, 3);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(277, 389);
-            groupBox1.TabIndex = 20;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "groupBox1";
+            filesTabControl.Controls.Add(tabPage1);
+            filesTabControl.Controls.Add(tabPage2);
+            filesTabControl.Location = new Point(3, 3);
+            filesTabControl.Name = "filesTabControl";
+            filesTabControl.SelectedIndex = 0;
+            filesTabControl.Size = new Size(238, 575);
+            filesTabControl.TabIndex = 0;
+            // 
+            // tabPage1
+            // 
+            tabPage1.Controls.Add(fileTree);
+            tabPage1.Location = new Point(4, 30);
+            tabPage1.Name = "tabPage1";
+            tabPage1.Padding = new Padding(3);
+            tabPage1.Size = new Size(230, 541);
+            tabPage1.TabIndex = 0;
+            tabPage1.Text = "tabPage1";
+            tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // fileTree
+            // 
+            fileTree.Dock = DockStyle.Left;
+            fileTree.Location = new Point(3, 3);
+            fileTree.Name = "fileTree";
+            fileTree.Size = new Size(224, 535);
+            fileTree.TabIndex = 0;
+            // 
+            // tabPage2
+            // 
+            tabPage2.Controls.Add(fileList);
+            tabPage2.Location = new Point(4, 30);
+            tabPage2.Name = "tabPage2";
+            tabPage2.Padding = new Padding(3);
+            tabPage2.Size = new Size(230, 541);
+            tabPage2.TabIndex = 1;
+            tabPage2.Text = "tabPage2";
+            tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // fileList
+            // 
+            fileList.Dock = DockStyle.Left;
+            fileList.FormattingEnabled = true;
+            fileList.Location = new Point(3, 3);
+            fileList.Name = "fileList";
+            fileList.Size = new Size(227, 535);
+            fileList.TabIndex = 0;
+            // 
+            // previewPictureBox
+            // 
+            previewPictureBox.Location = new Point(3, 3);
+            previewPictureBox.Name = "previewPictureBox";
+            previewPictureBox.Size = new Size(479, 575);
+            previewPictureBox.TabIndex = 0;
+            previewPictureBox.TabStop = false;
+            // 
+            // metadataGroupBox
+            // 
+            metadataGroupBox.Controls.Add(instructionListBox);
+            metadataGroupBox.Controls.Add(relPageNoNumEntry);
+            metadataGroupBox.Controls.Add(firstNameTextBox);
+            metadataGroupBox.Controls.Add(imagePathLabel);
+            metadataGroupBox.Controls.Add(doctypeComboBox);
+            metadataGroupBox.Controls.Add(relPageNoLabel);
+            metadataGroupBox.Controls.Add(entryFormButton);
+            metadataGroupBox.Controls.Add(doctypeLabel);
+            metadataGroupBox.Controls.Add(absPageNoLabel);
+            metadataGroupBox.Controls.Add(absPageNoNumEntry);
+            metadataGroupBox.Location = new Point(3, 3);
+            metadataGroupBox.Name = "metadataGroupBox";
+            metadataGroupBox.Size = new Size(277, 319);
+            metadataGroupBox.TabIndex = 20;
+            metadataGroupBox.TabStop = false;
+            metadataGroupBox.Text = "Metadata";
+            // 
+            // instructionListBox
+            // 
+            instructionListBox.FormattingEnabled = true;
+            instructionListBox.Location = new Point(6, 236);
+            instructionListBox.Name = "instructionListBox";
+            instructionListBox.Size = new Size(260, 25);
+            instructionListBox.TabIndex = 20;
             // 
             // relPageNoNumEntry
             // 
-            relPageNoNumEntry.Location = new Point(167, 228);
+            relPageNoNumEntry.Location = new Point(220, 186);
             relPageNoNumEntry.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             relPageNoNumEntry.Minimum = new decimal(new int[] { 10000, 0, 0, int.MinValue });
             relPageNoNumEntry.Name = "relPageNoNumEntry";
-            relPageNoNumEntry.Size = new Size(97, 29);
+            relPageNoNumEntry.Size = new Size(46, 29);
             relPageNoNumEntry.TabIndex = 19;
             relPageNoNumEntry.Value = new decimal(new int[] { 1, 0, 0, 0 });
-            // 
-            // relPageNoLabel
-            // 
-            relPageNoLabel.AutoSize = true;
-            relPageNoLabel.Location = new Point(167, 173);
-            relPageNoLabel.MaximumSize = new Size(100, 0);
-            relPageNoLabel.Name = "relPageNoLabel";
-            relPageNoLabel.Size = new Size(71, 42);
-            relPageNoLabel.TabIndex = 18;
-            relPageNoLabel.Text = "Relative Page No.";
-            // 
-            // absPageNoNumEntry
-            // 
-            absPageNoNumEntry.Location = new Point(6, 228);
-            absPageNoNumEntry.Name = "absPageNoNumEntry";
-            absPageNoNumEntry.Size = new Size(99, 29);
-            absPageNoNumEntry.TabIndex = 17;
-            // 
-            // absPageNoLabel
-            // 
-            absPageNoLabel.AutoSize = true;
-            absPageNoLabel.Location = new Point(6, 173);
-            absPageNoLabel.MaximumSize = new Size(100, 0);
-            absPageNoLabel.Name = "absPageNoLabel";
-            absPageNoLabel.Size = new Size(75, 42);
-            absPageNoLabel.TabIndex = 16;
-            absPageNoLabel.Text = "Absolute Page No.";
-            // 
-            // doctypeComboBox
-            // 
-            doctypeComboBox.FormattingEnabled = true;
-            doctypeComboBox.Location = new Point(6, 119);
-            doctypeComboBox.Name = "doctypeComboBox";
-            doctypeComboBox.Size = new Size(260, 29);
-            doctypeComboBox.TabIndex = 15;
-            // 
-            // entryFormButton
-            // 
-            entryFormButton.Location = new Point(124, 346);
-            entryFormButton.Name = "entryFormButton";
-            entryFormButton.Size = new Size(142, 31);
-            entryFormButton.TabIndex = 14;
-            entryFormButton.Text = "Open Entry Form";
-            entryFormButton.UseVisualStyleBackColor = true;
             // 
             // firstNameTextBox
             // 
@@ -157,15 +207,6 @@
             firstNameTextBox.Name = "firstNameTextBox";
             firstNameTextBox.Size = new Size(260, 29);
             firstNameTextBox.TabIndex = 13;
-            // 
-            // doctypeLabel
-            // 
-            doctypeLabel.AutoSize = true;
-            doctypeLabel.Location = new Point(6, 95);
-            doctypeLabel.Name = "doctypeLabel";
-            doctypeLabel.Size = new Size(67, 21);
-            doctypeLabel.TabIndex = 12;
-            doctypeLabel.Text = "Doctype";
             // 
             // imagePathLabel
             // 
@@ -177,21 +218,112 @@
             imagePathLabel.TabIndex = 11;
             imagePathLabel.Text = "Image Path";
             // 
-            // instructionListBox
+            // doctypeComboBox
             // 
-            instructionListBox.FormattingEnabled = true;
-            instructionListBox.Location = new Point(6, 306);
-            instructionListBox.Name = "instructionListBox";
-            instructionListBox.Size = new Size(258, 25);
-            instructionListBox.TabIndex = 20;
+            doctypeComboBox.FormattingEnabled = true;
+            doctypeComboBox.Location = new Point(6, 119);
+            doctypeComboBox.Name = "doctypeComboBox";
+            doctypeComboBox.Size = new Size(260, 29);
+            doctypeComboBox.TabIndex = 15;
+            // 
+            // relPageNoLabel
+            // 
+            relPageNoLabel.AutoSize = true;
+            relPageNoLabel.Location = new Point(143, 173);
+            relPageNoLabel.MaximumSize = new Size(100, 0);
+            relPageNoLabel.Name = "relPageNoLabel";
+            relPageNoLabel.Size = new Size(71, 42);
+            relPageNoLabel.TabIndex = 18;
+            relPageNoLabel.Text = "Relative Page No.";
+            // 
+            // entryFormButton
+            // 
+            entryFormButton.Location = new Point(124, 276);
+            entryFormButton.Name = "entryFormButton";
+            entryFormButton.Size = new Size(144, 31);
+            entryFormButton.TabIndex = 14;
+            entryFormButton.Text = "Open Entry Form";
+            entryFormButton.UseVisualStyleBackColor = true;
+            // 
+            // doctypeLabel
+            // 
+            doctypeLabel.AutoSize = true;
+            doctypeLabel.Location = new Point(6, 95);
+            doctypeLabel.Name = "doctypeLabel";
+            doctypeLabel.Size = new Size(67, 21);
+            doctypeLabel.TabIndex = 12;
+            doctypeLabel.Text = "Doctype";
+            // 
+            // absPageNoLabel
+            // 
+            absPageNoLabel.AutoSize = true;
+            absPageNoLabel.Location = new Point(6, 173);
+            absPageNoLabel.MaximumSize = new Size(100, 0);
+            absPageNoLabel.Name = "absPageNoLabel";
+            absPageNoLabel.Size = new Size(75, 42);
+            absPageNoLabel.TabIndex = 16;
+            absPageNoLabel.Text = "Absolute Page No.";
+            // 
+            // absPageNoNumEntry
+            // 
+            absPageNoNumEntry.Location = new Point(87, 186);
+            absPageNoNumEntry.Name = "absPageNoNumEntry";
+            absPageNoNumEntry.Size = new Size(46, 29);
+            absPageNoNumEntry.TabIndex = 17;
+            // 
+            // statusStrip1
+            // 
+            statusStrip1.Items.AddRange(new ToolStripItem[] { toolStripStatusLabel1 });
+            statusStrip1.Location = new Point(0, 608);
+            statusStrip1.Name = "statusStrip1";
+            statusStrip1.Size = new Size(1029, 22);
+            statusStrip1.TabIndex = 1;
+            statusStrip1.Text = "statusStrip1";
+            // 
+            // menuStrip1
+            // 
+            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, projectToolStripMenuItem, accountToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(1029, 24);
+            menuStrip1.TabIndex = 2;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            fileToolStripMenuItem.Size = new Size(52, 20);
+            fileToolStripMenuItem.Text = "Home";
+            fileToolStripMenuItem.Click += fileToolStripMenuItem_Click;
+            // 
+            // projectToolStripMenuItem
+            // 
+            projectToolStripMenuItem.Name = "projectToolStripMenuItem";
+            projectToolStripMenuItem.Size = new Size(56, 20);
+            projectToolStripMenuItem.Text = "Project";
+            // 
+            // toolStripStatusLabel1
+            // 
+            toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            toolStripStatusLabel1.Size = new Size(118, 17);
+            toolStripStatusLabel1.Text = "toolStripStatusLabel1";
+            // 
+            // accountToolStripMenuItem
+            // 
+            accountToolStripMenuItem.Name = "accountToolStripMenuItem";
+            accountToolStripMenuItem.Size = new Size(64, 20);
+            accountToolStripMenuItem.Text = "Account";
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1029, 630);
+            Controls.Add(statusStrip1);
+            Controls.Add(menuStrip1);
             Controls.Add(splitContainer1);
             Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            MainMenuStrip = menuStrip1;
             Margin = new Padding(4);
             Name = "MainForm";
             Text = "MainForm";
@@ -199,20 +331,31 @@
             splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
             splitContainer1.ResumeLayout(false);
+            splitContainer2.Panel1.ResumeLayout(false);
+            splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainer2).EndInit();
             splitContainer2.ResumeLayout(false);
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
+            filesTabControl.ResumeLayout(false);
+            tabPage1.ResumeLayout(false);
+            tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)previewPictureBox).EndInit();
+            metadataGroupBox.ResumeLayout(false);
+            metadataGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)relPageNoNumEntry).EndInit();
             ((System.ComponentModel.ISupportInitialize)absPageNoNumEntry).EndInit();
+            statusStrip1.ResumeLayout(false);
+            statusStrip1.PerformLayout();
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private SplitContainer splitContainer1;
         private SplitContainer splitContainer2;
-        private GroupBox groupBox1;
+        private GroupBox metadataGroupBox;
         private NumericUpDown relPageNoNumEntry;
         private TextBox firstNameTextBox;
         private Label imagePathLabel;
@@ -223,5 +366,17 @@
         private Label absPageNoLabel;
         private NumericUpDown absPageNoNumEntry;
         private ListBox instructionListBox;
+        private TabControl filesTabControl;
+        private TabPage tabPage1;
+        private TreeView fileTree;
+        private TabPage tabPage2;
+        private ListBox fileList;
+        private PictureBox previewPictureBox;
+        private StatusStrip statusStrip1;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem fileToolStripMenuItem;
+        private ToolStripMenuItem projectToolStripMenuItem;
+        private ToolStripStatusLabel toolStripStatusLabel1;
+        private ToolStripMenuItem accountToolStripMenuItem;
     }
 }
