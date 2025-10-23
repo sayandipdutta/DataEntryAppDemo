@@ -11,10 +11,7 @@ namespace DataEntryAppDemo
 
         private void nameSubmitButton_Click(object sender, EventArgs e)
         {
-            var fullName = DataEntryController.FullName(
-                firstNameTextBox.Text,
-                lastNameTextBox.Text);
-            MessageBox.Show($"You entered: {fullName}");
+
         }
 
         private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
