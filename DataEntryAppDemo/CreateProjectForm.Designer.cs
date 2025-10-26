@@ -30,8 +30,12 @@
         {
             projectNameLabel = new Label();
             projectNameTextBox = new TextBox();
-            openTemplateForm = new Button();
-            templateInfoTreeView = new TreeView();
+            fieldNameListView = new ListView();
+            fieldNameAddButton = new Button();
+            fieldNameDeleteButton = new Button();
+            projectCreationDoneButton = new Button();
+            fieldNameEditButton = new Button();
+            importProjectButton = new Button();
             SuspendLayout();
             // 
             // projectNameLabel
@@ -50,30 +54,81 @@
             projectNameTextBox.Size = new Size(212, 23);
             projectNameTextBox.TabIndex = 1;
             // 
-            // openTemplateForm
+            // fieldNameListView
             // 
-            openTemplateForm.Location = new Point(72, 109);
-            openTemplateForm.Name = "openTemplateForm";
-            openTemplateForm.Size = new Size(111, 23);
-            openTemplateForm.TabIndex = 2;
-            openTemplateForm.Text = "Add Template";
-            openTemplateForm.UseVisualStyleBackColor = true;
-            openTemplateForm.Click += openTemplateForm_Click;
+            fieldNameListView.Location = new Point(71, 115);
+            fieldNameListView.MultiSelect = false;
+            fieldNameListView.Name = "fieldNameListView";
+            fieldNameListView.Size = new Size(308, 274);
+            fieldNameListView.TabIndex = 2;
+            fieldNameListView.UseCompatibleStateImageBehavior = false;
+            fieldNameListView.View = View.List;
+            fieldNameListView.SelectedIndexChanged += fieldNameListView_SelectedIndexChanged;
+            fieldNameListView.DoubleClick += fieldNameListView_DoubleClick;
+            fieldNameListView.KeyDown += fieldNameListView_KeyDown;
             // 
-            // templateInfoTreeView
+            // fieldNameAddButton
             // 
-            templateInfoTreeView.Location = new Point(78, 176);
-            templateInfoTreeView.Name = "templateInfoTreeView";
-            templateInfoTreeView.Size = new Size(121, 97);
-            templateInfoTreeView.TabIndex = 3;
+            fieldNameAddButton.Location = new Point(104, 395);
+            fieldNameAddButton.Name = "fieldNameAddButton";
+            fieldNameAddButton.Size = new Size(75, 23);
+            fieldNameAddButton.TabIndex = 3;
+            fieldNameAddButton.Text = "&Add";
+            fieldNameAddButton.UseVisualStyleBackColor = true;
+            fieldNameAddButton.Click += fieldNameAddButton_Click;
+            // 
+            // fieldNameDeleteButton
+            // 
+            fieldNameDeleteButton.Enabled = false;
+            fieldNameDeleteButton.Location = new Point(185, 395);
+            fieldNameDeleteButton.Name = "fieldNameDeleteButton";
+            fieldNameDeleteButton.Size = new Size(75, 23);
+            fieldNameDeleteButton.TabIndex = 4;
+            fieldNameDeleteButton.Text = "&Delete";
+            fieldNameDeleteButton.UseVisualStyleBackColor = true;
+            fieldNameDeleteButton.Click += fieldNameDeleteButton_Click;
+            // 
+            // projectCreationDoneButton
+            // 
+            projectCreationDoneButton.Location = new Point(698, 410);
+            projectCreationDoneButton.Name = "projectCreationDoneButton";
+            projectCreationDoneButton.Size = new Size(90, 28);
+            projectCreationDoneButton.TabIndex = 5;
+            projectCreationDoneButton.Text = "Done";
+            projectCreationDoneButton.UseVisualStyleBackColor = true;
+            projectCreationDoneButton.Click += projectCreationDoneButton_Click;
+            // 
+            // fieldNameEditButton
+            // 
+            fieldNameEditButton.Enabled = false;
+            fieldNameEditButton.Location = new Point(266, 395);
+            fieldNameEditButton.Name = "fieldNameEditButton";
+            fieldNameEditButton.Size = new Size(75, 23);
+            fieldNameEditButton.TabIndex = 6;
+            fieldNameEditButton.Text = "&Edit";
+            fieldNameEditButton.UseVisualStyleBackColor = true;
+            fieldNameEditButton.Click += fieldNameEditButton_Click;
+            // 
+            // importProjectButton
+            // 
+            importProjectButton.Location = new Point(676, 12);
+            importProjectButton.Name = "importProjectButton";
+            importProjectButton.Size = new Size(112, 29);
+            importProjectButton.TabIndex = 7;
+            importProjectButton.Text = "Import Project";
+            importProjectButton.UseVisualStyleBackColor = true;
             // 
             // CreateProjectForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(templateInfoTreeView);
-            Controls.Add(openTemplateForm);
+            Controls.Add(importProjectButton);
+            Controls.Add(fieldNameEditButton);
+            Controls.Add(projectCreationDoneButton);
+            Controls.Add(fieldNameDeleteButton);
+            Controls.Add(fieldNameAddButton);
+            Controls.Add(fieldNameListView);
             Controls.Add(projectNameTextBox);
             Controls.Add(projectNameLabel);
             Name = "CreateProjectForm";
@@ -86,7 +141,11 @@
 
         private Label projectNameLabel;
         private TextBox projectNameTextBox;
-        private Button openTemplateForm;
-        private TreeView templateInfoTreeView;
+        private ListView fieldNameListView;
+        private Button fieldNameAddButton;
+        private Button fieldNameDeleteButton;
+        private Button projectCreationDoneButton;
+        private Button fieldNameEditButton;
+        private Button importProjectButton;
     }
 }

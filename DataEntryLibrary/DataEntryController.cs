@@ -2,5 +2,7 @@
 
 public class DataEntryController
 {
-    public List<string> FieldNames { get; } = new();
+    public required ProjectDetails projectDetails;
 }
+
+public record ProjectDetails (string ProjectName, List<string> FieldNames);
