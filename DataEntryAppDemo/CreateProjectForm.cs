@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataEntryLibrary;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -49,7 +50,9 @@ namespace DataEntryAppDemo
         private void deleteFieldName()
         {
             if (fieldNameListView.SelectedIndices.Count == 0) return;
-            fieldNameListView.Items.RemoveAt(fieldNameListView.SelectedIndices[0]);
+            var response = MessageBox.Show("Are you sure you want to delete the selected field name?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (response == DialogResult.Yes)
+                fieldNameListView.Items.RemoveAt(fieldNameListView.SelectedIndices[0]);
         }
 
         private void fieldNameDeleteButton_Click(object sender, EventArgs e)
@@ -114,7 +117,20 @@ namespace DataEntryAppDemo
             else if (fieldNameListView.Items.Count == 0)
                 MessageBox.Show("At least one field name must be added.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
+            {
+                ProjectConfig projectDetails = new(
+                    projectNameTextBox.Text,
+                    [.. fieldNameListView.Items
+                        .Cast<ListViewItem>()
+                        .Select(item => item.Text)]
+                );
+
+                string localAppDataPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+                string projectsPath = Path.Combine(localAppDataPath, "project.txt");
+                DataEntryController.SaveProject(projectDetails, projectsPath, username);
                 DialogResult = DialogResult.OK;
+            }
+
         }
     }
 }
